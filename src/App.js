@@ -1,7 +1,9 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
-
+import Registration from './pages/Registration';
 import './default.scss';
 
 
@@ -10,8 +12,11 @@ function App() {
     <div className="App">
       <Header />
       <div className="main">
-        <HomePage />
-      </div>
+        <Switch>
+          <Route exact path='/' component={HomePage} />
+          <Route path='/registration' component={Registration} />       
+        </Switch>
+      </div> 
     </div>
   );
 }
