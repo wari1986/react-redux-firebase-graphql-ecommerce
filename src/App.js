@@ -1,7 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Header from './components/Header';
+//layouts
+import MainLayout from './layouts/MainLayout';
+import HomePageLayout from './layouts/HomePageLayout';
+
+//pages
 import HomePage from './pages/HomePage';
 import Registration from './pages/Registration';
 import './default.scss';
@@ -10,13 +14,18 @@ import './default.scss';
 function App() {
   return (
     <div className="App">
-      <Header />
-      <div className="main">
-        <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route path='/registration' component={Registration} />       
+      <Switch>
+          <Route exact path='/' render={() => (
+            <HomePageLayout>
+              <HomePage />
+            </HomePageLayout>
+          )} />
+          <Route path='/registration' render={() => (
+            <MainLayout>
+              <Registration />
+            </MainLayout>
+          )} />       
         </Switch>
-      </div> 
     </div>
   );
 }
