@@ -5,7 +5,7 @@ const Footer = props => {
     return (
         <footer className='footer'>
             <div className='wrap'>
-                © HeliosWebDevelopment 2020
+                © PistachoDesign 2020
             </div>
         </footer>
     );
