@@ -6,7 +6,7 @@ import { singInWithGoogle, auth } from './../../firebase/utils';
 
 import AuthWrapper from './../AuthWrapper';
 import FormInput from './../forms/FormInput';
-import Button from './../forms/Button';
+// import Button from './../forms/Button';
 
 
 const initialState = {

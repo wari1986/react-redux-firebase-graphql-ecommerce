@@ -1,18 +1,20 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './style.scss';
 import { Link } from 'react-router-dom'
 import { auth } from './../../firebase/utils';
 
-// import Logo from './../../assets/pistacho.jpeg';
+import Logo from './../../assets/pistacho.jpeg';
 
 const Header = props => {
     const { currentUser } = props;
+
     return (
         <header className="header">
           <div className="wrap">
               <div className="logo">
                 <Link to="/">
-                  <h2>Pistacho</h2>
+                  <img id='imglogo' src={Logo} alt="pistacho-logo"/>
                 </Link>
               </div>
 
@@ -50,6 +52,10 @@ const Header = props => {
 
 Header.defaultProps = {
   currentUser: null
-}
+};
 
-export default Header;
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+});
+
+export default connect(mapStateToProps, null)(Header);
